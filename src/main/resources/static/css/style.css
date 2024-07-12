@@ -3,4 +3,5 @@
 header{height: 100px;}
 .contents {min-height: 500px;}
 footer{height: 100px;}
-.sign-up-box{height: 400px;}
+
+.sign-up-box {width:800px;}
