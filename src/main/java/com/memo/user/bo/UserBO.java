@@ -18,6 +18,12 @@ public class UserBO {
 		return userRepository.findByLoginId(loginId);
 	}
 	
+	// input: loginId, password
+	// output: UserEntity or null
+	public UserEntity getUserEntityByLoginIdPassword(String loginId, String password) {
+		return userRepository.findByLoginIdAndPassword(loginId, password);
+	}
+	
 	// input: 4 params
 	// UserEntity
 	
