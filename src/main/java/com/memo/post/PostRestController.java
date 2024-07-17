@@ -25,10 +25,14 @@ public class PostRestController {
 	public Map<String, Object> create(HttpSession session,
 			@RequestParam("subject") String subject,
 			@RequestParam("content") String content,
-			@RequestParam("file") MultipartFile file) {
+			@RequestParam(value = "file", required = false) MultipartFile file) { // null 가능
+		
+		// 글쓴이 번호를 session에서 꺼낸다.
+		int userId = (int)session.getAttribute("userId");
+		String userLoginId = (String)session.getAttribute("userLoginId");
 		
 		// DB insert
-		postBO.addPost((int)session.getAttribute("userId"), subject, content, file);
+		postBO.addPost(userId, userLoginId, subject, content, file);
 		
 		// 응답값
 		Map<String, Object> result = new HashMap<>();

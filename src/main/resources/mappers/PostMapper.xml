@@ -34,13 +34,17 @@
 			, `subject`
 			, `content`
 			, `imagePath`
+			, `createdAt`
+			, `updatedAt`
  		)
  		VALUES
  		(
  			#{userId}
  			, #{subject}
  			, #{content}
- 			, #{file}
+ 			, #{imagePath}
+ 			, NOW()
+ 			, NOW()
  		)
  	</insert>
  </mapper>
