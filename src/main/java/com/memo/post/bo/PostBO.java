@@ -25,6 +25,12 @@ public class PostBO {
 		return postMapper.selectPostListByUserId(userId);
 	}
 	
+	// input: userId, postId
+	// output: Post // null
+	public Post getPostByUserIdAndPostId(int userId, int postId) {
+		return postMapper.selectPostByUserIdAndPostId(userId, postId);
+	}
+	
 	// input: userId, subject, content, file
 	// output: void
 	public void addPost(int userId, String userLoginId, String subject, String content, MultipartFile file) {
@@ -37,4 +43,6 @@ public class PostBO {
 		
 		postMapper.insertPost(userId, subject, content, imagePath);
 	}
+	
+	
 }
